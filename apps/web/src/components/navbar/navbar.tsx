@@ -14,7 +14,9 @@ import NavLinks from '../navlinks';
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 flex h-16 items-center justify-between w-full gap-4 border-b bg-background px-8 md:px-4 bg-zinc-50">
+    <header className="fixed top-0 flex h-16 items-center justify-between w-full
+     gap-4 border-b bg-background px-8 md:px-4 bg-zinc-50 dark:bg-zinc-950 dark:border-b-zinc-800 dark:shadow-md"
+    >
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
         <Link
           href="/"

@@ -10,7 +10,7 @@ import type { AdapterAccount } from '@auth/core/adapters';
 export const users = pgTable('user', {
   id: text('id').notNull().primaryKey(),
   name: text('name').notNull(),
-  email: text('email').unique(),
+  email: text('email').unique().notNull(),
   emailVerified: timestamp('emailVerified', { mode: 'date' }),
   password: text('password'),
   image: text('image'),

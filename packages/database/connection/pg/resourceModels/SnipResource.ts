@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import { logger } from '@repo/utils';
 import { and, desc, eq } from 'drizzle-orm';
 import ResourceModelInterface from '../ResourceModelInterface';
-import { snips, users } from '../schema';
+import { snips } from '../schema';
 import { SnipType } from '../../../types/SnipType';
 
 export default class SnipResource extends ResourceModelInterface {
@@ -10,12 +11,13 @@ export default class SnipResource extends ResourceModelInterface {
     snip,
     lang,
     user,
+    description,
     created,
   }: SnipType): Promise<string | false> {
     try {
       const [{ insertedId }] = await this.db.insert(snips).values({
-        id, snip, lang, user, created,
-      }).returning({ insertedId: users.id });
+        id, snip, lang, user, description, created,
+      }).returning({ insertedId: snips.id });
 
       return insertedId;
     } catch (e) {

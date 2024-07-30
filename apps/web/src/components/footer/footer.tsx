@@ -5,7 +5,7 @@ import LogoImg from '@/assets/logo.svg';
 
 export default function Footer() {
   return (
-    <footer className="flex items-center px-6 justify-between w-full h-16 bg-zinc-50 border border-zinc-200">
+    <footer className="flex items-center px-6 justify-between w-full h-16 bg-zinc-50 border border-zinc-200 dark:bg-zinc-950 dark:border-none">
       <p className="text-sm text-zinc-500 font-bold">Free Code Snippets</p>
       <Link
         href="/"

@@ -1,13 +1,8 @@
 import { logger } from '@repo/utils';
 import { SnipResource } from '../../connection';
+import { SnipType } from '../../types/SnipType';
 
-type SnipParams = {
-  id?: string;
-  snip?: string;
-  lang?: string;
-  user?: string;
-  created?: Date;
-};
+type SnipParams = Partial<SnipType>;
 
 export default class Snip {
   id: string;
@@ -18,6 +13,8 @@ export default class Snip {
 
   user: string;
 
+  description: string;
+
   created?: Date;
 
   resource: SnipResource;
@@ -27,6 +24,7 @@ export default class Snip {
     snip,
     lang,
     user,
+    description,
     created,
   }: SnipParams = {}) {
     this.id = id || '';
@@ -34,6 +32,7 @@ export default class Snip {
     this.lang = lang || '';
     this.user = user || '';
     this.created = created; // May be undefined
+    this.description = description || '';
     this.resource = new SnipResource();
   }
 
@@ -67,9 +66,15 @@ export default class Snip {
     return this;
   }
 
+  setDescription(value: string) {
+    this.description = value;
+
+    return this;
+  }
+
   async save() {
     const {
-      id, snip, lang, user,
+      id, snip, lang, user, description,
     } = this;
 
     if (!id || !snip || !lang || !user) {
@@ -83,6 +88,7 @@ export default class Snip {
       snip,
       lang,
       user,
+      description,
       created: new Date(),
     });
   }
@@ -97,9 +103,9 @@ export default class Snip {
     }
 
     return snips.map(({
-      id, snip, lang, user, created,
+      id, snip, lang, user, created, description,
     }) => new Snip({
-      id, snip, lang, user, created,
+      id, snip, lang, user, created, description,
     }));
   }
 
@@ -113,9 +119,9 @@ export default class Snip {
     }
 
     return snips.map(({
-      id, snip, lang, user, created,
+      id, snip, lang, user, created, description,
     }) => new Snip({
-      id, snip, lang, user, created,
+      id, snip, lang, user, created, description,
     }));
   }
 
@@ -129,13 +135,14 @@ export default class Snip {
     }
 
     const {
-      id, snip, lang, user, created,
+      id, snip, lang, user, created, description,
     } = snipData;
 
     return this.setId(id)
       .setSnip(snip)
       .setLang(lang)
       .setUser(user)
-      .setCreated(created);
+      .setCreated(created)
+      .setDescription(description);
   }
 }
