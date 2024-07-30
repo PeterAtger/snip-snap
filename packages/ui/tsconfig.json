@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "@atger/typescript-config"
+  ],
+  "compilerOptions": {},
+  "exclude": [
+    "node_modules"
+  ],
+}

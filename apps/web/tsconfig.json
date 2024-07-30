@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "@atger/typescript-config"
+  ],
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "next.config.js",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "lib/**/**/*.ts",
+    "lib/**/**/*.jsx",
+    "src/env.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

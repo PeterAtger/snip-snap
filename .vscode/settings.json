@@ -1,0 +1,14 @@
+{
+    "eslint.workingDirectories": [
+        "apps/web",
+        "packages/logger",
+        "packages/utils",
+        "packages/ui",
+        "packages/database"
+    ],
+    "search.exclude": {
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/.next": true,
+    }
+}

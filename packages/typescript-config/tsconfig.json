@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "nodenext",
+      "resolveJsonModule": true,
+      "moduleResolution": "node",
+    },
+    "require": [
+      "tsconfig-paths/register",
+      "dotenv/config"
+    ],
+    "files": true,
+    "exclude": [
+      "node_modules"
+    ]
+  },
+}
