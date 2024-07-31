@@ -5,6 +5,14 @@
       "dependsOn": [
         "^build"
       ],
+      "env": [
+        "NODE_ENV",
+        "NEXTAUTH_URL",
+        "GITHUB_CLIENT_ID",
+        "GITHUB_CLIENT_SECRET",
+        "POSTGRES_URL",
+        "AUTH_SECRET"
+      ],
       "outputs": [
         "dist/**",
         ".next/**",
