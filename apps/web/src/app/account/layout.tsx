@@ -4,8 +4,8 @@ import { auth } from '@/server/auth';
 import NavLinks from '@/components/navlinks';
 
 export const metadata: Metadata = {
-  title: 'Profile | The Feeds Tool',
-  description: 'All your configurations in one place',
+  title: 'Profile | Snip Snap',
+  description: 'Snip snip .. oh snap',
 };
 
 export default async function RootLayout({
