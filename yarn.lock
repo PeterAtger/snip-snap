@@ -3810,7 +3810,7 @@ eslint-config-next@14.0.2:
     eslint-plugin-react "^7.33.2"
     eslint-plugin-react-hooks "^4.5.0 || 5.0.0-canary-7118f5dd7-20230705"
 
-eslint-config-next@^14.2.4:
+eslint-config-next@^14.2.5:
   version "14.2.5"
   resolved "https://registry.yarnpkg.com/eslint-config-next/-/eslint-config-next-14.2.5.tgz#cdd43d89047eb7391ba25445d5855b4600b6adb9"
   integrity sha512-zogs9zlOiZ7ka+wgUnmcM0KBEDjo4Jis7kxN1jvC0N4wynQ2MIx/KBkg4mVF63J5EK4W0QMCn7xO3vNisjaAoA==
@@ -5812,7 +5812,7 @@ next-tick@^1.1.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
   integrity sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
 
-next@^14.2.4:
+next@^14.2.5:
   version "14.2.5"
   resolved "https://registry.yarnpkg.com/next/-/next-14.2.5.tgz#afe4022bb0b752962e2205836587a289270efbea"
   integrity sha512-0f8aRfBVL+mpzfBjYfQuLWh2WyAwtJXCRfkPF4UJ5qd2YwrHczsrSzXU4tRMV0OAxR8ZJZWPFn6uhSC56UTsLA==
