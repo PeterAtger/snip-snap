@@ -3,13 +3,7 @@ import pino from 'pino';
 import pretty from 'pino-pretty';
 
 const getLogger = () => {
-  const path = './logs';
-
-  if (!existsSync(path)) {
-    mkdirSync(path);
-  }
-
-  if (process.env.DEVELOPMENT) {
+  if (process.env.SKIP_LOG_FILE) {
     const stream = pretty({
       colorize: true,
       colorizeObjects: false,
@@ -17,6 +11,12 @@ const getLogger = () => {
     });
 
     return pino(stream);
+  }
+
+  const path = './logs';
+
+  if (!existsSync(path)) {
+    mkdirSync(path);
   }
 
   const stream = pretty({
