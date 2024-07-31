@@ -20,10 +20,10 @@
   "devDependencies": {
     "@atger/eslint-config": "*",
     "@atger/typescript-config": "*",
-    "shadcn-ui": "latest",
-    "tailwindcss": "^3.4.4"
+    "shadcn-ui": "latest"
   },
   "dependencies": {
+    "tailwindcss": "^3.4.4",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-alert-dialog": "^1.1.1",
