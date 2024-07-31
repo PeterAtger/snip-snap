@@ -16,7 +16,7 @@ export default function Snippet({ snippet }: SnippetProps) {
   } = snippet;
 
   return (
-    <Card className="bg-zinc-50 rounded-lg shadow-sm">
+    <Card className="bg-zinc-50 rounded-lg shadow-sm h-min">
       <CardHeader>
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-bold">{id}</h2>

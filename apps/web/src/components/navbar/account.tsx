@@ -53,8 +53,12 @@ export default function Account() {
           <span className="sr-only">Toggle user menu</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+      <DropdownMenuContent className="w-8" align="center">
+        <DropdownMenuLabel>
+          <Link href="/account/add-snippet">
+            Add Snippet
+          </Link>
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Settings</DropdownMenuItem>
         <DropdownMenuItem>Support</DropdownMenuItem>
