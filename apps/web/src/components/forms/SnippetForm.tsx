@@ -9,15 +9,33 @@ import {
   SelectTrigger,
   SelectValue,
   Textarea,
-  toast,
+  useToast,
 } from '@repo/ui';
 import { useFormState } from 'react-dom';
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import onAddSnippet from '@/server/actions/onAddSnippet';
+import { LANG_MAP } from '@/types/Languages';
 
 export default function SnippetForm() {
+  const { toast } = useToast();
   const [selectValue, setSelectValue] = useState('');
   const [formResult, onSubmit] = useFormState(onAddSnippet, { success: false, message: '' });
+
+  const renderLanguages = () => {
+    const result: ReactNode[] = [];
+
+    Object.entries(LANG_MAP).forEach(([key, value]) => (
+      result.push(
+        <SelectItem value={key}>
+          <div className="flex items-start gap-3 text-muted-foreground">
+            {value}
+          </div>
+        </SelectItem>,
+      )
+    ));
+
+    return result;
+  };
 
   useEffect(() => {
     if (formResult.message) {
@@ -44,16 +62,7 @@ export default function SnippetForm() {
               <SelectValue placeholder="Select a language" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="js">
-                <div className="flex items-start gap-3 text-muted-foreground">
-                  Javascript
-                </div>
-              </SelectItem>
-              <SelectItem value="ts">
-                <div className="flex items-start gap-3 text-muted-foreground">
-                  TypeScript
-                </div>
-              </SelectItem>
+              {renderLanguages()}
             </SelectContent>
           </Select>
         </div>

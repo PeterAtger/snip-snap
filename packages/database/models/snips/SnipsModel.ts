@@ -145,4 +145,8 @@ export default class Snip {
       .setCreated(created)
       .setDescription(description);
   }
+
+  async getSnipCount() {
+    return this.resource.getSnipCount();
+  }
 }

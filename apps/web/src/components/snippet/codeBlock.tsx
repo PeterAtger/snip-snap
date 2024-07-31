@@ -5,13 +5,16 @@ import { ClipboardCheck, ClipboardCopy } from 'lucide-react';
 import { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { LANG_MAP } from '@/types/Languages';
 
 type CodeBlockProps = {
   snippet: string;
+  lang: string
 };
 
-export default function CodeBlock({ snippet }: CodeBlockProps) {
+export default function CodeBlock({ snippet, lang }: CodeBlockProps) {
   const [active, setIsActive] = useState(false);
+  const shLang : string = LANG_MAP[lang as keyof typeof LANG_MAP] || '';
 
   const copy = () => {
     navigator.clipboard.writeText(snippet);
@@ -28,10 +31,10 @@ export default function CodeBlock({ snippet }: CodeBlockProps) {
       </Button>
       <SyntaxHighlighter
         customStyle={{ borderRadius: '0.5rem', padding: '1rem' }}
-        language="javascript"
+        language={shLang}
         style={atomOneDark}
       >
-        {snippet.replaceAll('\\n', '\n')}
+        {snippet}
       </SyntaxHighlighter>
     </div>
   );

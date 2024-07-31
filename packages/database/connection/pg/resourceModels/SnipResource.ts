@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { logger } from '@repo/utils';
-import { and, desc, eq } from 'drizzle-orm';
+import {
+  and, desc, eq, count,
+} from 'drizzle-orm';
 import ResourceModelInterface from '../ResourceModelInterface';
 import { snips } from '../schema';
 import { SnipType } from '../../../types/SnipType';
@@ -73,5 +75,11 @@ export default class SnipResource extends ResourceModelInterface {
     }
 
     return data;
+  }
+
+  async getSnipCount() {
+    const result = await this.db.select({ count: count() }).from(snips);
+
+    return result[0].count;
   }
 }

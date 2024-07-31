@@ -10,4 +10,8 @@ export class SnipProvider {
   async getSnips(page?: number) {
     return this.model.getAllSnips(page || 1);
   }
+
+  async getCount() {
+    return this.model.getSnipCount();
+  }
 }

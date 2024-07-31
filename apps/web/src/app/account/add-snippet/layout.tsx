@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Feed Profiles | The Feeds Tool',
-  description: 'Manage your feed profiles',
+  title: 'Add snippet | Snip Snap',
+  description: 'Snip Snip .. oh snap',
 };
 
 export default function RootLayout({

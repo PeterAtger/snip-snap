@@ -29,7 +29,7 @@ export default function Snippet({ snippet }: SnippetProps) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <CodeBlock snippet={snip} />
+        <CodeBlock snippet={snip} lang={lang} />
       </CardContent>
       <CardFooter>
         <div className="flex items-center justify-between">
