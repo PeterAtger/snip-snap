@@ -12,8 +12,8 @@
     "**/*.css"
   ],
   "scripts": {
-    "dev": "tailwindcss -i ./globals.css -o ./dist/index.css --watch",
-    "build": "tailwindcss -i ./globals.css -o ./dist/index.css",
+    "dev": "yarn tailwindcss -i ./globals.css -o ./dist/index.css --watch",
+    "build": "yarn tailwindcss -i ./globals.css -o ./dist/index.css",
     "lint": "eslint ./",
     "test": "jest --watch-all --verbose"
   },
