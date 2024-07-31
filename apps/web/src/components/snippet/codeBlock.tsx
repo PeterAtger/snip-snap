@@ -24,13 +24,13 @@ export default function CodeBlock({ snippet, lang }: CodeBlockProps) {
 
   return (
     <div className="relative">
-      <Button variant="link" size="icon" className="absolute top-2 right-2">
+      <Button size="icon" className="absolute top-2 right-2">
         {active
           ? <ClipboardCheck className="stroke-green-500 w-4" />
           : <ClipboardCopy onClick={copy} className="stroke-white w-4" />}
       </Button>
       <SyntaxHighlighter
-        customStyle={{ borderRadius: '0.5rem', padding: '1rem' }}
+        customStyle={{ borderRadius: '0.5rem', padding: '1rem', paddingInlineEnd: '3rem' }}
         language={shLang}
         style={atomOneDark}
       >
