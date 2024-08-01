@@ -8,18 +8,12 @@ import { snips } from '../schema';
 import { SnipType } from '../../../types/SnipType';
 
 export default class SnipResource extends ResourceModelInterface {
-  async createSnip({
-    id,
-    snip,
-    lang,
-    user,
-    description,
-    created,
-  }: SnipType): Promise<string | false> {
+  async createSnip(snip: SnipType): Promise<string | false> {
     try {
-      const [{ insertedId }] = await this.db.insert(snips).values({
-        id, snip, lang, user, description, created,
-      }).returning({ insertedId: snips.id });
+      const [{ insertedId }] = await this.db
+        .insert(snips)
+        .values(snip)
+        .returning({ insertedId: snips.id });
 
       return insertedId;
     } catch (e) {

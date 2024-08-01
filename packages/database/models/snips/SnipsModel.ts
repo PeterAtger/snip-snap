@@ -15,7 +15,7 @@ export default class Snip {
 
   description: string;
 
-  created?: Date;
+  created: Date;
 
   resource: SnipResource;
 
@@ -31,7 +31,7 @@ export default class Snip {
     this.snip = snip || '';
     this.lang = lang || '';
     this.user = user || '';
-    this.created = created; // May be undefined
+    this.created = created || new Date();
     this.description = description || '';
     this.resource = new SnipResource();
   }
@@ -74,7 +74,7 @@ export default class Snip {
 
   async save() {
     const {
-      id, snip, lang, user, description,
+      id, snip, lang, user,
     } = this;
 
     if (!id || !snip || !lang || !user) {
@@ -83,14 +83,7 @@ export default class Snip {
       return false;
     }
 
-    return this.resource.createSnip({
-      id,
-      snip,
-      lang,
-      user,
-      description,
-      created: new Date(),
-    });
+    return this.resource.createSnip(this);
   }
 
   async getAllSnips(page: number): Promise<false | Snip[]> {
@@ -102,11 +95,7 @@ export default class Snip {
       return false;
     }
 
-    return snips.map(({
-      id, snip, lang, user, created, description,
-    }) => new Snip({
-      id, snip, lang, user, created, description,
-    }));
+    return snips.map((snip) => new Snip(snip));
   }
 
   async getUserSnips(userId: string): Promise<false | Snip[]> {
@@ -118,11 +107,7 @@ export default class Snip {
       return false;
     }
 
-    return snips.map(({
-      id, snip, lang, user, created, description,
-    }) => new Snip({
-      id, snip, lang, user, created, description,
-    }));
+    return snips.map((snip) => new Snip(snip));
   }
 
   async loadSnipById(userId: string, snipId: string) {
@@ -134,16 +119,9 @@ export default class Snip {
       return false;
     }
 
-    const {
-      id, snip, lang, user, created, description,
-    } = snipData;
+    Object.assign(this, snipData);
 
-    return this.setId(id)
-      .setSnip(snip)
-      .setLang(lang)
-      .setUser(user)
-      .setCreated(created)
-      .setDescription(description);
+    return this;
   }
 
   async getSnipCount() {
